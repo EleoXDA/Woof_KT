@@ -175,10 +175,10 @@ fun WoofPreview() {
     }
 }
 
-//@Preview
-//@Composable
-//fun DarkThemePreview() {
-//    WoofTheme(darkTheme = true) {
-//        WoofApp()
-//    }
-//}
+@Preview
+@Composable
+fun DarkThemePreview() {
+    WoofTheme(darkTheme = true) {
+        WoofApp()
+    }
+}
