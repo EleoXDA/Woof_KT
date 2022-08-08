@@ -44,6 +44,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.draw.clip
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.material.Card
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -78,14 +80,16 @@ fun WoofApp() {
  */
 @Composable
 fun DogItem(dog: Dog, modifier: Modifier = Modifier) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(8.dp)
-            .background(MaterialTheme.colors.surface)
-    ) {
-        DogIcon(dog.imageResourceId)
-        DogInformation(dog.name, dog.age)
+    Card() {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(8.dp)
+                .background(MaterialTheme.colors.surface)
+        ) {
+            DogIcon(dog.imageResourceId)
+            DogInformation(dog.name, dog.age)
+        }
     }
 }
 
