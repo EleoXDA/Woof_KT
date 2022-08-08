@@ -150,7 +150,9 @@ fun DogInformation(@StringRes dogName: Int, dogAge: Int, modifier: Modifier = Mo
 
 @Composable
 fun WoofTopAppBar(modifier: Modifier = Modifier) {
-    Row() {
+    Row(
+        modifier = modifier.background(color = MaterialTheme.colors.primary)
+    ) {
         Image(
             painter = painterResource(R.drawable.ic_woof_logo),
             contentDescription = null)
