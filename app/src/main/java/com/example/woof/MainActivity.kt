@@ -40,6 +40,7 @@ import com.example.woof.data.dogs
 import com.example.woof.ui.theme.WoofTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.foundation.background
+import androidx.compose.ui.unit.dp
 
 
 class MainActivity : ComponentActivity() {
@@ -79,6 +80,7 @@ fun DogItem(dog: Dog, modifier: Modifier = Modifier) {
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp)
+            .background(MaterialTheme.colors.surface)
     ) {
         DogIcon(dog.imageResourceId)
         DogInformation(dog.name, dog.age)
