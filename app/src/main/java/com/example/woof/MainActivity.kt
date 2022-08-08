@@ -154,6 +154,7 @@ fun WoofTopAppBar(modifier: Modifier = Modifier) {
         modifier = modifier.fillMaxWidth().background(color = MaterialTheme.colors.primary)
     ) {
         Image(
+            modifier = Modifier.size(64.dp).padding(8.dp),
             painter = painterResource(R.drawable.ic_woof_logo),
             contentDescription = null)
         Text(
