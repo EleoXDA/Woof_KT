@@ -38,6 +38,9 @@ import androidx.compose.ui.unit.dp
 import com.example.woof.data.Dog
 import com.example.woof.data.dogs
 import com.example.woof.ui.theme.WoofTheme
+import androidx.compose.material.MaterialTheme
+import androidx.compose.foundation.background
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,7 +58,9 @@ class MainActivity : ComponentActivity() {
  */
 @Composable
 fun WoofApp() {
-    LazyColumn {
+    LazyColumn(modifier =
+    Modifier.background(MaterialTheme.colors.background))
+    {
         items(dogs) {
             DogItem(dog = it)
         }
