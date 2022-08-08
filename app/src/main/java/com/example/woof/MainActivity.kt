@@ -45,6 +45,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.material.Card
+import androidx.compose.material.Scaffold
 
 
 class MainActivity : ComponentActivity() {
@@ -63,11 +64,17 @@ class MainActivity : ComponentActivity() {
  */
 @Composable
 fun WoofApp() {
-    LazyColumn(modifier =
-    Modifier.background(MaterialTheme.colors.background))
-    {
-        items(dogs) {
-            DogItem(dog = it)
+    Scaffold (
+        topBar = {
+            WoofTopAppBar()
+        }
+            ){
+        LazyColumn(modifier =
+        Modifier.background(MaterialTheme.colors.background))
+        {
+            items(dogs) {
+                DogItem(dog = it)
+            }
         }
     }
 }
@@ -137,6 +144,18 @@ fun DogInformation(@StringRes dogName: Int, dogAge: Int, modifier: Modifier = Mo
         Text(
             text = stringResource(R.string.years_old, dogAge),
             style = MaterialTheme.typography.body1
+        )
+    }
+}
+
+@Composable
+fun WoofTopAppBar(modifier: Modifier = Modifier) {
+    Row() {
+        Image(
+            painter = painterResource(R.drawable.ic_woof_logo),
+            contentDescription = null)
+        Text(
+            text = stringResource(R.string.app_name)
         )
     }
 }
