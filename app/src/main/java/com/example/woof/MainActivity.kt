@@ -80,7 +80,9 @@ fun WoofApp() {
  */
 @Composable
 fun DogItem(dog: Dog, modifier: Modifier = Modifier) {
-    Card() {
+    Card(
+        modifier = modifier.padding(8.dp)
+    ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
