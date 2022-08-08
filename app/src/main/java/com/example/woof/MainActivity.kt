@@ -43,7 +43,7 @@ import androidx.compose.foundation.background
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.draw.clip
 import androidx.compose.foundation.shape.RoundedCornerShape
-
+import androidx.compose.ui.layout.ContentScale
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -102,7 +102,9 @@ fun DogIcon(@DrawableRes dogIcon: Int, modifier: Modifier = Modifier) {
             .size(64.dp)
             .padding(8.dp)
             .clip(RoundedCornerShape(50)),
-    painter = painterResource(dogIcon),
+        contentScale = ContentScale.Crop,
+
+        painter = painterResource(dogIcon),
         /*
          * Content Description is not needed here - image is decorative, and setting a null content
          * description allows accessibility services to skip this element during navigation.
