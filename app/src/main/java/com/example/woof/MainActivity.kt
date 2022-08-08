@@ -41,6 +41,8 @@ import com.example.woof.ui.theme.WoofTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.foundation.background
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.draw.clip
+import androidx.compose.foundation.shape.RoundedCornerShape
 
 
 class MainActivity : ComponentActivity() {
@@ -98,8 +100,9 @@ fun DogIcon(@DrawableRes dogIcon: Int, modifier: Modifier = Modifier) {
     Image(
         modifier = modifier
             .size(64.dp)
-            .padding(8.dp),
-        painter = painterResource(dogIcon),
+            .padding(8.dp)
+            .clip(RoundedCornerShape(50)),
+    painter = painterResource(dogIcon),
         /*
          * Content Description is not needed here - image is decorative, and setting a null content
          * description allows accessibility services to skip this element during navigation.
@@ -141,10 +144,10 @@ fun WoofPreview() {
     }
 }
 
-@Preview
-@Composable
-fun DarkThemePreview() {
-    WoofTheme(darkTheme = true) {
-        WoofApp()
-    }
-}
+//@Preview
+//@Composable
+//fun DarkThemePreview() {
+//    WoofTheme(darkTheme = true) {
+//        WoofApp()
+//    }
+//}
