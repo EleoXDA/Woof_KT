@@ -93,6 +93,7 @@ fun DogItem(dog: Dog, modifier: Modifier = Modifier) {
         ) {
             DogIcon(dog.imageResourceId)
             DogInformation(dog.name, dog.age)
+            Spacer(Modifier.weight(1f))
             DogItemButton(
                 expanded = expanded,
                 onClick = { }
