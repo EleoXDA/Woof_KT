@@ -26,10 +26,9 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -97,6 +96,22 @@ fun DogItem(dog: Dog, modifier: Modifier = Modifier) {
     }
 }
 
+@Composable
+private fun DogItemButton(
+    expanded: Boolean,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    IconButton(onClick = onClick) {
+        Icon(imageVector = Icons.Filled.ExpandMore,
+            tint = MaterialTheme.colors.secondary,
+            contentDescription = stringResource(R.string.expand_button_content_description)
+        )
+
+    }
+
+}
+
 
  /* Composable that displays a Top Bar with an icon and text.
  *
@@ -105,10 +120,14 @@ fun DogItem(dog: Dog, modifier: Modifier = Modifier) {
 @Composable
 fun WoofTopAppBar(modifier: Modifier = Modifier) {
     Row(
-        modifier = modifier.fillMaxWidth().background(color = MaterialTheme.colors.primary)
+        modifier = modifier
+            .fillMaxWidth()
+            .background(color = MaterialTheme.colors.primary)
     ) {
         Image(
-            modifier = Modifier.size(64.dp).padding(8.dp),
+            modifier = Modifier
+                .size(64.dp)
+                .padding(8.dp),
             painter = painterResource(R.drawable.ic_woof_logo),
                         /*
              * Content Description is not needed here - image is decorative, and setting a null
