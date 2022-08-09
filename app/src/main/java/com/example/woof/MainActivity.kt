@@ -69,7 +69,7 @@ fun WoofApp() {
         topBar = {
             WoofTopAppBar()
         }
-            ){
+    ) {
         LazyColumn(modifier =
         Modifier.background(MaterialTheme.colors.background))
         {
@@ -103,8 +103,33 @@ fun DogItem(dog: Dog, modifier: Modifier = Modifier) {
     }
 }
 
-/**
- * Composable that displays a photo of a dog.
+
+ /* Composable that displays a Top Bar with an icon and text.
+ *
+ * @param modifier modifiers to set to this composable
+ */
+@Composable
+fun WoofTopAppBar(modifier: Modifier = Modifier) {
+    Row(
+        modifier = modifier.fillMaxWidth().background(color = MaterialTheme.colors.primary)
+    ) {
+        Image(
+            modifier = Modifier.size(64.dp).padding(8.dp),
+            painter = painterResource(R.drawable.ic_woof_logo),
+                        /*
+             * Content Description is not needed here - image is decorative, and setting a null
+             * content description allows accessibility services to skip this element during
+             * navigation.
+             */
+             contentDescription = null
+         )
+        Text(
+            text = stringResource(R.string.app_name),
+            style = MaterialTheme.typography.h1
+        )
+    }
+}
+ /* Composable that displays a photo of a dog.
  *
  * @param dogIcon is the resource ID for the image of the dog
  * @param modifier modifiers to set to this composable
@@ -149,21 +174,6 @@ fun DogInformation(@StringRes dogName: Int, dogAge: Int, modifier: Modifier = Mo
     }
 }
 
-@Composable
-fun WoofTopAppBar(modifier: Modifier = Modifier) {
-    Row(
-        modifier = modifier.fillMaxWidth().background(color = MaterialTheme.colors.primary)
-    ) {
-        Image(
-            modifier = Modifier.size(64.dp).padding(8.dp),
-            painter = painterResource(R.drawable.ic_woof_logo),
-            contentDescription = null)
-        Text(
-            text = stringResource(R.string.app_name),
-            style = MaterialTheme.typography.h1
-        )
-    }
-}
 
 /**
  * Composable that displays what the UI of the app looks like in light theme in the design tab.
@@ -176,6 +186,9 @@ fun WoofPreview() {
     }
 }
 
+/**
+ * Composable that displays what the UI of the app looks like in dark theme in the design tab.
+ */
 @Preview
 @Composable
 fun DarkThemePreview() {
