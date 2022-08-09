@@ -29,7 +29,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExpandMore
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
@@ -81,6 +81,7 @@ fun WoofApp() {
  */
 @Composable
 fun DogItem(dog: Dog, modifier: Modifier = Modifier) {
+    var expanded by remember { mutableStateOf(false) }
     Card(
         modifier = modifier.padding(8.dp),
         elevation = 4.dp
@@ -92,12 +93,17 @@ fun DogItem(dog: Dog, modifier: Modifier = Modifier) {
         ) {
             DogIcon(dog.imageResourceId)
             DogInformation(dog.name, dog.age)
+            DogItemButton(
+                expanded = expanded,
+                onClick = { }
+            )
         }
     }
 }
 
 @Composable
 private fun DogItemButton(
+
     expanded: Boolean,
     onClick: () -> Unit,
     modifier: Modifier = Modifier
@@ -202,10 +208,10 @@ fun WoofPreview() {
 /**
  * Composable that displays what the UI of the app looks like in dark theme in the design tab.
  */
-@Preview
-@Composable
-fun DarkThemePreview() {
-    WoofTheme(darkTheme = true) {
-        WoofApp()
-    }
-}
+//@Preview
+//@Composable
+//fun DarkThemePreview() {
+//    WoofTheme(darkTheme = true) {
+//        WoofApp()
+//    }
+//}
